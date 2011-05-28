@@ -6,5 +6,11 @@ var o={
 	d:new Date(),r:/[a]/gi,f:function(a){return a+1;}};
 var e=bson.encode(o);
 var d=bson.decode(e);
+assert.deepEqual(o.r.toString(),d.r.toString());
+assert.deepEqual(o.f.toString(),d.f.toString());
+delete o['f'];
+delete d['f'];
+delete o['r'];
+delete d['r'];
 assert.deepEqual(o,d);
 //assert.eql(JSON.stringify(o1),JSON.stringify(bson.decode(bson.encode(o1))));

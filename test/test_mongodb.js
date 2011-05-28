@@ -29,6 +29,9 @@ saveAndLoad(o)(function(err,result) {
 			assert.deepEqual(result2,{retval:[],ok:1});
 			delete ret['_id'];
 			delete o['f'];
+			assert.deepEqual(ret.r.toString(),o.r.toString());
+			delete ret['r'];
+			delete o['r'];
 			assert.deepEqual(ret,o);
 
 		});
